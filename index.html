@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Application Spark</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+        />
+        <style>
+            body {
+                font-family: "Poppins", sans-serif;
+                margin: 0;
+            }
+            .hero {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 1rem;
+                height: 60vh;
+            }
+            h1 {
+                font-size: 3rem;
+                margin: 0;
+                color: #333;
+            }
+            .hero-img {
+                width: 90vw;
+                height: 80vh;
+                box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+                    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+                border-radius: 2rem;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .header {
+                display: flex;
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            /* CSS */
+            button {
+                align-items: center;
+                appearance: button;
+                background-color: #5ba8ff;
+                border-radius: 8px;
+                border-style: none;
+                box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+                box-sizing: border-box;
+                color: #fff;
+                cursor: pointer;
+                display: flex;
+                flex-direction: row;
+                flex-shrink: 0;
+                font-size: 100%;
+                line-height: 1.15;
+                margin: 0;
+                padding: 10px 21px;
+                text-align: center;
+                text-transform: none;
+                transition: color 0.13s ease-in-out,
+                    background 0.13s ease-in-out, opacity 0.13s ease-in-out,
+                    box-shadow 0.13s ease-in-out;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+            }
+
+            button:active {
+                background-color: #006ae8;
+            }
+
+            button:hover {
+                background-color: #1c84ff;
+            }
+            .application-spark {
+                white-space: nowrap;
+                background-color: #5ba8ff44;
+                padding: 0.2rem 0.5rem;
+                border-radius: 0.5rem;
+            }
+            .as-logo {
+                max-width: 2rem;
+                min-width: 2rem;
+                max-height: 2rem;
+                min-height: 2rem;
+                background-color: #5ba8ff44;
+                border-radius: 0.2rem;
+            }
+            a {
+                color: #333;
+                transition: 0.2s;
+                text-decoration: none;
+                font-weight: 500;
+            }
+            a:hover {
+                color: #5ba8ff;
+            }
+            h2 {
+                color: #5ba8ff;
+                margin: 0;
+                display: block;
+                font-size: 4rem;
+            }
+            h3 {
+                color: #5ba8ff;
+                margin: 0;
+                display: block;
+                font-size: 2rem;
+                text-wrap: nowrap;
+            }
+            .feature {
+                border: 2px solid #5ba8ff44;
+                border-radius: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem 2rem;
+                opacity: 0.3;
+                margin-bottom: 2rem;
+                transition: 0.3s;
+            }
+            .feature.infocus {
+                border: 2px solid #5ba8ff;
+                opacity: 1;
+            }
+            .feature > .feature-content > h3 + div {
+                display: none;
+            }
+            .feature.infocus > .feature-content > h3 + div {
+                display: flex;
+            }
+            .scroll-explanation {
+                margin-left: 50vw;
+                min-height: 400px;
+                display:block;
+            }
+            .feature-content {
+                text-align: center;
+            }
+            .has-hr{
+                border-bottom: 2px solid #b0b0b0;
+                color: #b0b0b0;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        </style>
+        <script>
+            curscroll = "scroll1";
+            function contactus() {
+                console.log("contact us");
+                emailTo = "hello@applicationspark.org";
+                emailSub = encodeURIComponent("Contact Us - Application Spark");
+                location.href = "mailto:" + emailTo + "&subject=" + emailSub;
+            }
+            function onScroll(){
+                console.log(window.scrollY);
+                startAt = 1500;
+                gap = 400;
+                if (window.scrollY < 1500 && curscroll != "scroll1") {
+                    document.getElementById("scroll1").classList.add("infocus");
+                    document.getElementById("scroll2").classList.remove("infocus");
+                    document.getElementById("scroll3").classList.remove("infocus");
+                    curscroll = "scroll1";
+                }else if(window.scrollY < startAt+gap && window.scrollY>startAt && curscroll != "scroll2"){
+                    document.getElementById("scroll1").classList.remove("infocus");
+                    document.getElementById("scroll2").classList.add("infocus");
+                    document.getElementById("scroll3").classList.remove("infocus");
+                    curscroll = "scroll2";
+                    console.log("scroll2");
+                }if(window.scrollY > startAt+gap && curscroll != "scroll3"){
+                    console.log("scroll3");
+                    document.getElementById("scroll1").classList.remove("infocus");
+                    document.getElementById("scroll2").classList.remove("infocus");
+                    document.getElementById("scroll3").classList.add("infocus");
+                    curscroll = "scroll3";
+                }
+            }
+            window.onscroll = onScroll;
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="as-logo"></div>
+
+            <div
+                style="
+                    display: flex;
+                    margin-right: 0px;
+                    margin-left: auto;
+                    gap: 2rem;
+                "
+            >
+                <a href="#stories">Stories</a>
+                <a href="#features">Features</a>
+            </div>
+        </div>
+        <div class="hero">
+            <h1 class="application-spark">Application Spark</h1>
+            <div style="color: #333">
+                An application portal that just works.
+            </div>
+            <button style="margin-top: 1rem" onclick="contactus()">
+                Contact Sales
+            </button>
+        </div>
+        <div
+            style="
+                width: 100vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            "
+        >
+            <div class="hero-img">
+                <video style="height: 80vh" autoplay muted loop>
+                    <source src="movie.mp4" type="video/mp4" />
+                    <img
+                        style="width: 30vw"
+                        src="recommender-request.png"
+                        alt="recommender request"
+                    />
+                </video>
+            </div>
+        </div>
+        <div
+            id="stats"
+            style="
+                width: 100vw;
+                display: flex;
+                gap: 10vw;
+                margin-top: 10rem;
+                justify-content: center;
+                align-items: center;
+            "
+        >
+            <div>
+                <h2 class="counter">500+</h2>
+                Applications Processed
+            </div>
+            <div>
+                <h2 class="counter">$200,000+</h2>
+                Dollars distributed
+            </div>
+            <div>
+                <h2 class="counter">Zero</h2>
+                Unhappy Customers
+            </div>
+        </div>
+        <div
+            id="stories"
+            style="
+                margin-top: 10rem;
+                padding-left: 10vw;
+                padding-right: 10vw;
+                width: 80vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            "
+        >
+            <div class="has-hr">
+                Used at
+            </div>
+            <img src="University-of-Rochester-Logo.png" style="width: 20vw;"/>
+        </div>
+        <div
+            id="features"
+            style="
+                margin-top: 10rem;
+                padding-left: 10vw;
+                padding-right: 10vw;
+                height: 80rem;
+                width: 80vw;
+                position: relative;
+            "
+        >
+            <div
+                style="
+                    position: sticky;
+                    top: 10rem;
+                "
+            >
+                <div class="feature infocus" id="scroll1">
+                    <div class="feature-content">
+                        <h3>Unify your application process</h3>
+                        <div style="align-items: center; justify-content: center; gap: 5rem; padding: 2rem;">
+                            <img src="oneplace.svg" />
+                            <div style="width: 15rem; text-align: left;">
+                                Application Spark provides a single location for
+                                applicants, recommenders and reviewers to work on
+                                the application process.
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="feature" id="scroll2">
+                    <div class="feature-content">
+                        <h3>Manage large scale reviews</h3>
+                        <div style="align-items: center; justify-content: center; gap: 5rem; padding: 2rem;">
+                            <img src="reviewerscroll.svg" />
+                            <div style="width: 15rem; text-align: left;">
+                                Manage hundreds of reviewer assignments and results
+                                from a single panel. Get up to date statistics on
+                                review completion, and send reminders to reviewers.
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="feature" id="scroll3">
+                    <div class="feature-content">
+                        <h3>Customize every aspect</h3>
+                        <div style="align-items: center; justify-content: center; gap: 5rem; padding: 2rem;">
+                            <img src="customize.svg" />
+                            <div style="width: 15rem; text-align: left;">
+                                Everything from application and review forms to the
+                                emails sent to applicants can be customized at any
+                                time.
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="min-height: 20rem; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <h3 style="color: #333;">Get a hold of your application process</h3>
+            <button style="margin-top: 1rem" onclick="contactus()">
+                Contact Sales
+            </button>
+        </div>
+    </body>
+</html>
